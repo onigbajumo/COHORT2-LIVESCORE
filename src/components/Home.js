@@ -4,7 +4,7 @@ class Home extends Component{
   render(){
     return(
       <Fragment>
-      
+        <h1>Testing</h1>
       </Fragment>
     )
   }
