@@ -3,7 +3,7 @@ import React  from 'react'
 import "./lf-style.css";
 
 //
-Date = () => {
+let mainDate = () => {
   const date = new Date();
   let hours = date.getHours();
   let minute = date.getMinutes();
