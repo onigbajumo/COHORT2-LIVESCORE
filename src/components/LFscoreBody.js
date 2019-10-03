@@ -4,12 +4,12 @@ import "./lf-style.css";
 
 
 const Body=(props)=>{
-
+  
 	return (
     <div>
      
 			<div className="strip">
-        <p className="tin">{props.matchTime}</p>
+      <p className="tin">{new Date(props.matchTime * 1000).toUTCString().slice(-11,-4)}</p>
         <p className="tin">{props.homeName}</p>
         <p className="tin">{props.homeScore}</p>
         <p className="tin">vs</p>
