@@ -1,35 +1,88 @@
-import React, { useEffect, useState } from 'react';
-import Body from './LFscoreBody'
+import React, { useEffect, useState, Fragment } from "react";
+import Body from "./LFscoreBody";
+import Header from "./Header";
+import Footer from "./Footer";
+import SideBar from "./SideBar";
+import Date from "./Body";
+
+import Loading from "./loading";
+
 const App = () => {
+	const [scores, Setscores] = useState([]);
+	const [loading, Setloading] = useState(false);
 
-  const [scores, Setscores] = useState([])
+	useEffect(() => {
+		getData();
+	}, []);
 
-  useEffect(() => {
-    getData()
-  }, [])
+	const getData = async () => {
+		Setloading(!loading);
+		await fetch("https://secure-lake-56026.herokuapp.com/")
+			.then(res => res.json())
+			.then(data => {
+				console.log(data);
+				Setscores([data.data]);
+				if (data) {
+					Setloading(false);
+				}
+			});
+	};
+  console.log(scores);
+  //  date = new Date();
+  //  hours = date.getHours();
+  // minute = date.getMinutes();
+  //  day = date.getDay();
+  // days = [
+  //   "Sunday",
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "Friday",
+  //   "Saturday"
+  // ];
+  // let date = new Date();
 
-  const getData = async () => {
-    await fetch('https://secure-lake-56026.herokuapp.com/')
-    .then(res => res.json())
-    .then(data => {
-    console.log(data)
-      Setscores([data.data])
-    })
-  }
-console.log(scores)
-  return (
-    <div style={{width: "500px", margin: "0 auto"}}>
-      hhhhhhhhhhhhhhhhhhh
-      {
-        scores.map((score, index) => (
-          // <h6 key={index} style={{marginLeft:'30px', color: "white"}}>{score.leagueName}</h6>
-          score.map((sc,i) => <h6 key={i} style={{marginLeft:'30px', color: "white"}}>{sc.leagueName}</h6>)
-        ))
-      }
-      
-  
-    </div>
-
-  )
-}
+	return (
+		<Fragment>
+			{loading ? (
+				<center>
+					<Loading />
+				</center>
+			) : (
+				<div>
+            <Header />
+            
+            {scores.map((score, index) =>
+              score.map((sc, i) => (
+            <SideBar
+                  key={i}
+                  style={{ marginLeft: "30px", color: "white" }}
+                  leagueName={sc.leagueName}
+                />
+              )))}
+				
+				
+					{scores.map((score, index) =>
+						score.map((sc, i) => (
+              
+               
+							<Body
+								key={i}
+								style={{ marginLeft: "30px", color: "white" }}
+								homeName={sc.homeName}
+								awayName={sc.awayName}
+								homeScore={sc.homeScore}
+								awayScore={sc.awayScore}
+                matchTime={sc.matchTime}
+              
+							/>
+						))
+					)}
+					<Footer />
+				</div>
+			)}
+		</Fragment>
+	);
+};
 export default App;
