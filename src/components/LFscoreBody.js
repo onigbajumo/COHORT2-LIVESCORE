@@ -6,16 +6,16 @@ import "./lf-style.css";
 const Body=(props)=>{
   
 	return (
-    <div>
+    <div className="strip">
      
-			<div className="strip">
-      <p className="tin">{new Date(props.matchTime * 1000).toUTCString().slice(-11,-4)}</p>
-        <p className="tin">{props.homeName}</p>
-        <p className="tin">{props.homeScore}</p>
-        <p className="tin">vs</p>
-        <p className="tin">{props.awayScore}</p>
-        <p className="tin">{props.awayName}</p>
-        <p className="tin">FT</p>
+			<div className="tin">
+      <p >{new Date(props.matchTime * 1000).toUTCString().slice(-11,-7)}</p>
+        <p >{props.homeName}</p>
+        <p >{props.homeScore}</p>
+        <p >vs</p>
+        <p >{props.awayScore}</p>
+        <p >{props.awayName}</p>
+        <p >FT</p>
       </div>
       
 		</div>

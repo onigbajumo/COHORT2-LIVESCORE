@@ -6,19 +6,17 @@ body{
 }
 
 .strip {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 20px;
-  height: 25px;
-  margin-left:250px
-}
+  margin-left:350px ;
+} 
 
 .strip:nth-child(even) {
   background-color: rgb(195, 195, 195);
+  padding: 10px;
 }
 
 .strip:nth-child(odd) {
   background-color: rgb(144, 144, 144);
+  padding: 10px;
 }
 
 .country {
@@ -30,14 +28,21 @@ body{
 }
 .tin {
   font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  height: 25px;
+  
 }
+
 
 .jude {
   background-color: rgba(1, 1, 216, 0.733);
   font-size: 20px;
-  width: 250px;
+  width: 25%;
   text-align: center;
-  color:white
+  color:white;
+  
 }
 .pac {
   border-bottom: 1px solid;
@@ -86,4 +91,10 @@ a:hover {
 }
 span {
   color: rgba(84, 81, 252, 0.986);
+}
+.result{
+  /* display:block; */
+}
+.loading{
+  margin-top:400px;
 }
