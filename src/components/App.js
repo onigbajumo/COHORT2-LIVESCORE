@@ -3,8 +3,6 @@ import Body from "./LFscoreBody";
 import Header from "./Header";
 import Footer from "./Footer";
 import SideBar from "./SideBar";
-import Date from "./Body";
-
 import Loading from "./loading";
 
 const App = () => {
@@ -28,20 +26,6 @@ const App = () => {
       });
   };
   console.log(scores);
-  //  date = new Date();
-  //  hours = date.getHours();
-  // minute = date.getMinutes();
-  //  day = date.getDay();
-  // days = [
-  //   "Sunday",
-  //   "Monday",
-  //   "Tuesday",
-  //   "Wednesday",
-  //   "Thursday",
-  //   "Friday",
-  //   "Saturday"
-  // ];
-  // let date = new Date();
 
   return (
     <Fragment>
@@ -52,7 +36,7 @@ const App = () => {
       ) : (
         <div>
           <Header />
-
+        <div className="result">
           {scores.map((score, index) =>
             score.map((sc, i) => (
               <SideBar
@@ -76,6 +60,7 @@ const App = () => {
               />
             ))
           )}
+          </div>
           <Footer />
         </div>
       )}

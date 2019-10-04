@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/home.css'
 const Footer = () => {
     return (
         <footer className="page-footer grey darken-3">
