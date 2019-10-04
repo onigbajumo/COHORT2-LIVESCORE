@@ -1,0 +1,25 @@
+/* .one{
+    font-size: 20px;
+    
+}
+.two{
+    font-size: 10px;
+    font-weight: bold; */
+   
+/* }         */
+.testing{
+    margin: 30px;
+    display: flex;
+    width: 100%;
+    
+}
+.strip {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    width: 100%;
+    
+  }
+  .side{
+      width: 20%;
+  }
